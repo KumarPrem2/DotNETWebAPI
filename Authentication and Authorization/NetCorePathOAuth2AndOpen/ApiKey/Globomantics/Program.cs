@@ -10,6 +10,7 @@ builder.Services.AddScoped<IProposalApiService, ProposalApiService>();
 builder.Services.AddSingleton(sp =>
 {
     var client = new HttpClient { BaseAddress = new Uri("https://localhost:5002") };
+    client.DefaultRequestHeaders.Add("XAPIKey", "secret");
     return client;
 });
 
